@@ -1,0 +1,15 @@
+{
+  "name": "codewithashx_exercices",
+  "version": "1.0.0",
+  "description": "Initiation au développement web",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Hello World!\" && echo \"Node version: $(node --version)\" && echo \"Git version: $(git --version)\" && echo \"NPM version: $(npm --version)\"",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
