@@ -1,4 +1,4 @@
-## Qu'est-ce qu'on va installer ?
+# Description des outils nécessaires
 
 - VS Code
 - Git
@@ -6,7 +6,7 @@
 - NPM (Node Package Manager)
 - Créer un compte Github si tu n'en possède pas déjà
 
-## VS Code ? c'est quoi ca ?!
+## VS Code ?
 
 VS Code est un éditeur de code puissant et flexible, idéal pour écrire, déboguer et organiser du code JavaScript. Il est doté de nombreuses fonctionnalités comme la coloration syntaxique, la gestion de projets Git intégrée, et des extensions comme ESLint et Prettier pour vous aider à écrire un code propre et structuré.
 
@@ -37,3 +37,59 @@ npm est un gestionnaire de paquets qui accompagne Node.js. Il vous permet de té
 Dans ce cours, vous utiliserez npm pour installer des modules nécessaires à certains exercices. Par exemple, vous pourriez installer une bibliothèque qui simplifie la manipulation des fichiers ou un outil pour vérifier si votre code respecte les bonnes pratiques. Comprendre npm vous permettra de découvrir et d'intégrer des ressources du vaste écosystème JavaScript dans vos propres projets.
 
 NPM est déjà installer avec NodeJS
+
+# Setup des outils
+
+## Créer ton compte Github
+
+GitHub est une plateforme qui te permet d'entreposer tes projets et des les partager avec d'autres développeurs.
+Afin de pouvoir suivre ce cour, il te sera nécessaire de créer un compte Github afin télécharger les modules nécessaires.
+
+Pour ce faire tu peux suivre ces étapes [Créer un compte Github](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github)
+
+Rend toi sur le repository (l'endroit ou sont entreposés les fichiers du cours) [Code with ashx](https://github.com/ashxjs/codewithashx_exercices) et clique sur le bouton "Code" en haut à droite de l'écran. Sélectionne `HTTPS` et copie le lien.
+
+En passant, tu peux cliquer sur le bouton "Star" pour donner de la force à ce repository.
+
+## Clone le repository
+
+Ouvre Visual Studio Code et déplace toi dans le dossier ou tu veux stocker les fichiers du cours:
+
+- Windows: <kbd>Ctrl</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
+- Mac: <kbd>Cmd</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
+- Ficher => Ouvrir un dossier
+
+Puis ouvre une nouvelle fenêtre de terminal (Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>, Mac: <kbd>Cmd</kbd> + <kbd>J</kbd>)
+
+```bash
+    git clone https://github.com/ashxjs/codewithashx_exercices.git
+```
+
+## Installer les modules
+
+Nous aurons à present devoir installer les modules nécessaires pour le cours. Pour ce faire dans le même terminal ou tu as cloné le repository, tape la commande suivante:
+
+Npm va nous servir à télécharger toutes les librairies nécessaires pour le cours.
+
+```bash
+    npm install
+```
+
+Tu es maintenant prêt à commencer le cours.
+
+## Vérifier les versions
+
+Pour vérifier que tout fonctionne bien, tu peux lancer la commande suivante:
+
+```bash
+    npm run postinstall
+```
+
+Cette commande va vérifier que les versions de Node, Git et NPM sont correctes.
+Si tu as des erreurs, tu peux les résoudre en suivant les instructions de la documentation officielle de Node, Git et NPM.
+
+Pour lancer le cours, tu peux lancer la commande suivante:
+
+```bash
+    git checkout 1.Variables
+```

@@ -4,8 +4,9 @@
   "description": "Initiation au développement web",
   "main": "index.js",
   "scripts": {
-    "start": "echo \"Hello World!\" && echo \"Node version: $(node --version)\" && echo \"Git version: $(git --version)\" && echo \"NPM version: $(npm --version)\"",
-    "test": "jest"
+    "postinstall": "echo \"Node version: $(node --version)\" && echo \"Git version: $(git --version)\" && echo \"NPM version: $(npm --version)\"",
+    "test": "npx jest test/variables.test.js --watch",
+    "update:courses": "git fetch -a"
   },
   "author": "",
   "license": "ISC",

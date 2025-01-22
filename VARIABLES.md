@@ -6,11 +6,11 @@ Prérequis:
 
 Une variable est une boite qui contient une quelques chose.
 
-![./img/variable_box.png](./img/variable_box.png)
+![./images/variable_box.png](./images/variable_box.png)
 
 On demande a notre ordinateur de nous donner une zone mémoire temporaire afin d'y stocker quelques chose.
 
-![./img/memory_allocation.png](./img/memory_allocation.png)
+![./images/memory_allocation.png](./images/memory_allocation.png)
 Il n'est pas important de comprendre tout le process a 100%, mais cela permet d'illustrer grossièrement le process
 
 En Javascript, on va pouvoir stocker différents types de valeurs dans nos variables, elles sont classés en 2 catégories:
@@ -34,7 +34,7 @@ Nous rentrerons plus en détails dans les cours suivants afin que tu comprenne v
 
 La syntax se compose de 3 parties (nous verrons qu'il en existe une 4ème plus tard)
 
-![Screenshot 2025-01-18 at 10.57.01.png](./img/Screenshot%202025-01-18%20at%2010.57.01.png)
+![Screenshot 2025-01-18 at 10.57.01.png](./images/Screenshot%202025-01-18%20at%2010.57.01.png)
 
 ### Mot clès ou `keyword`
 
