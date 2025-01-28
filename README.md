@@ -1,95 +1,162 @@
-# Description des outils nécessaires
+Une variable est comme une boite qui contient une quelques chose.
 
-- VS Code
-- Git
-- Node
-- NPM (Node Package Manager)
-- Créer un compte Github si tu n'en possède pas déjà
+![images/./imagesv(images/./images)ariable_schema.png]]
 
-## VS Code ?
+Cette boite serait rangé dans une armoire avec pour chaque tirroir une adresse associé.
 
-VS Code est un éditeur de code puissant et flexible, idéal pour écrire, déboguer et organiser du code JavaScript. Il est doté de nombreuses fonctionnalités comme la coloration syntaxique, la gestion de projets Git intégrée, et des extensions comme ESLint et Prettier pour vous aider à écrire un code propre et structuré.
+![images/variable_store_schema.png](images/variable_store_schema.png)
 
-Dans le cadre de ce cours, vous utiliserez VS Code pour suivre les exercices et explorer les modules. C’est un outil standard dans le monde du développement, et l’apprendre dès maintenant vous donnera une solide base pour travailler sur des projets JavaScript et collaborer efficacement avec d’autres développeurs.
+Dans ce schema on aurait une variable `age` qui est stocké à l'adresse `B3` et qui contient la valeur `42`.
 
-Lien d'installation: https://code.visualstudio.com/
+Avec `Javascript` nous n'avons pas besoin gérer la mémoire, le moteur Javascript s'en charge pour nous ! (Et tant mieux xD)
 
-## Git
+On demande a notre ordinateur de nous donner une zone mémoire temporaire afin d'y stocker quelques une valeur.
 
-Git est un outil de contrôle de version qui vous permet de suivre et de gérer les modifications apportées à votre code. Il est utilisé pour collaborer efficacement, revenir à une version précédente en cas d’erreur, et organiser le développement de projets complexes grâce à des branches distinctes pour différentes fonctionnalités ou étapes.
+Si on devait réaliser un schèma assez grossier, cela donnerait ca:
 
-Dans le cadre de ce cours, Git vous permettra d’explorer les différents modules de manière organisée. Chaque module sera placé sur une branche distincte, ce qui vous permettra de naviguer facilement entre les étapes du cours, de comprendre les ajouts progressifs au code, et d’expérimenter sans risque d’altérer le projet principal. C’est une compétence clé pour tout développeur moderne, et ce cours vous aidera à la maîtriser dès le début.
+![images/variable_allocation_process.png](images/variable_allocation_process.png)
 
-Lien d'installation: https://git-scm.com/
+En Javascript, on va pouvoir stocker différents types de valeurs dans nos variables, elles sont classés en 2 catégories:
 
-## Node JS
+- Les primitives
+- Les objects
 
-Node.js est un environnement qui permet d’exécuter du code JavaScript en dehors du navigateur, grâce à son moteur JavaScript V8 (le même que celui de Chrome). Contrairement à un navigateur qui exécute JavaScript pour manipuler des pages web, Node.js est conçu pour des applications côté serveur. Cela signifie qu’il vous donne accès à des fonctionnalités supplémentaires, comme la gestion des fichiers, des serveurs, et d'autres outils non disponibles dans un navigateur.
+Les valeurs primitives sont a la base du langages d'ou sont nom primitive.
 
-Lien d'installation: https://nodejs.org/en/download
+- strings (chaîne de caractères)
+- number (nombre)
+- BigInt (très gros nombre)
+- boolean (vrai ou faux)
+- undefinied (non défini)
+- null
+- symbole
 
-Dans ce cours, Node.js sera utilisé pour exécuter certains scripts JavaScript directement sur votre machine. Par exemple, vous apprendrez à utiliser des bibliothèques qui permettent de lire ou d’écrire dans des fichiers, ce qui est impossible à faire avec JavaScript dans un navigateur. C’est une manière différente mais essentielle d’utiliser JavaScript pour construire des applications plus complexes.
+Nous rentrerons plus en détails dans les cours suivants afin que tu comprenne vraiment chaque notion qui se cache derrière ces termes.
 
-### NPM (Node Package Manager)
+### Mais dans tous ca, comment on declare une variable en JS ?
 
-npm est un gestionnaire de paquets qui accompagne Node.js. Il vous permet de télécharger, installer et gérer des bibliothèques et outils JavaScript créés par d'autres développeurs, appelés "modules". Ces modules facilitent la création de projets en réutilisant des fonctionnalités existantes au lieu de les coder vous-même.
+La syntax se compose de 3 parties (nous verrons qu'il en existe une 4ème plus tard)
 
-Dans ce cours, vous utiliserez npm pour installer des modules nécessaires à certains exercices. Par exemple, vous pourriez installer une bibliothèque qui simplifie la manipulation des fichiers ou un outil pour vérifier si votre code respecte les bonnes pratiques. Comprendre npm vous permettra de découvrir et d'intégrer des ressources du vaste écosystème JavaScript dans vos propres projets.
+![images/variable_declaration.png](images/variable_declaration.png)
 
-NPM est déjà installer avec NodeJS
+### Mot clés ou `keyword`
 
-# Setup des outils
+est un mot réserver par le langage pour executer une action, par exemple: `let` permet de dire que l'on souhaite reserver un espace mémoire, que l'on pourra modifié par la suite. Liste des différents keywords en JS [`mot clés`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords)
 
-## Créer ton compte Github
+### `Nom de la variable`
 
-GitHub est une plateforme qui te permet d'entreposer tes projets et des les partager avec d'autres développeurs.
-Afin de pouvoir suivre ce cour, il te sera nécessaire de créer un compte Github afin télécharger les modules nécessaires.
+Sert à différencier les variables, le nom peut être composer de caractère et chiffre, cependant les espaces ne sont pas autorisé. Il n'est pas possible d'avoir deux variables portant le même nom.
 
-Pour ce faire tu peux suivre ces étapes [Créer un compte Github](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github)
+🚨 Le nom des variables est sensible à la casse.
 
-Rend toi sur le repository (l'endroit ou sont entreposés les fichiers du cours) [Code with ashx](https://github.com/ashxjs/codewithashx_exercices) et clique sur le bouton "Code" en haut à droite de l'écran. Sélectionne `HTTPS` et copie le lien.
-
-En passant, tu peux cliquer sur le bouton "Star" pour donner de la force à ce repository.
-
-## Clone le repository
-
-Ouvre Visual Studio Code et déplace toi dans le dossier ou tu veux stocker les fichiers du cours:
-
-- Windows: <kbd>Ctrl</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Mac: <kbd>Cmd</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Ficher => Ouvrir un dossier
-
-Puis ouvre une nouvelle fenêtre de terminal (Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>, Mac: <kbd>Cmd</kbd> + <kbd>J</kbd>)
-
-```bash
-    git clone https://github.com/ashxjs/codewithashx_exercices.git
+```Javascript
+let monNom = "dupont" // ✅ valide
+let monnom = "dupont" // ✅ valide
+let monAge = 42 // ✅ valide
+let monAge = 42 // ❌ invalide, une autre variable existe avec le meme nom
+let mon nom = "une erreur" // ❌ invalide, pas d'espace
 ```
 
-## Installer les modules
+Exemple:
 
-Nous aurons à present devoir installer les modules nécessaires pour le cours. Pour ce faire dans le même terminal ou tu as cloné le repository, tape la commande suivante:
-
-Npm va nous servir à télécharger toutes les librairies nécessaires pour le cours.
-
-```bash
-    npm install
+```Javascript
+let cat = "Garfield";
 ```
 
-Tu es maintenant prêt à commencer le cours.
+```Javascript
+let name = "John"; // ✅ valide
+let let = "async"; // ❌ invalide
+const age = 42; // ✅ valide
 
-## Vérifier les versions
-
-Pour vérifier que tout fonctionne bien, tu peux lancer la commande suivante:
-
-```bash
-    npm run postinstall
+var address = "127.0.0.1" // ✅ valide
 ```
 
-Cette commande va vérifier que les versions de Node, Git et NPM sont correctes.
-Si tu as des erreurs, tu peux les résoudre en suivant les instructions de la documentation officielle de Node, Git et NPM.
+### `let`
 
-Pour lancer le cours, tu peux lancer la commande suivante:
+Avec `let` tu peux déclarer une variable dans laquelle tu peux changer sa valeur !
+C'est à dire que son contenue peu changer !
+
+```Javascript
+let name = "Alexis"
+
+name = "Valentin"  // ✅ valide
+```
+
+### `const`
+
+C'est un autre moyen de déclarer des variables, const est le diminutif de constante (qui ne change pas). Il n'est donc pas possible de modifier la valeur qui y est associé.
+
+```javascript
+const name = "Alexis";
+name = "Valentin"; // ❌ invalide
+```
+
+### `var` (déprécié)
+
+Tu verras peut-être des variables déclarer avec le mot clés `var` mais il n'est plus recommendé de l'utiliser.
+
+Mais il avait la meme utilisation que `let`.
+
+---
+
+🚨 ATTENTION 🚨
+
+Une variable qui n'aurait pas été initialisé à sa création à quand même une valeur !
+C'est valeur en `Javascript` est `undefined`
+
+```Javascript
+let name;
+
+console.log(name); // output: undefined
+```
+
+une const doit toujours avoir une valeur de départ. Si jamais tu oublies, tu verras un jolie message d'erreur
+
+```Javascript
+const name; // ❌ erreur
+```
+
+---
+
+### **Un peu de pratique 💪**
+
+Vérifie que tu sois sure la bonne branch, dans ton terminal saisie la commande:
 
 ```bash
-    git checkout 1.Variables
+git status // On branch 1-Variables ✅
+# pour changer de branches
+git reset --hard HEAD && git switch 1-Variables
+```
+
+1️⃣ Utilise let pour changer la valeur d'un nombre
+2️⃣ Empêche la variable de changer de valeur
+3️⃣ Change la valeur de message pour mettre "Au revoir"
+4️⃣ Trouve l'erreur dans ce code
+
+Pour tester si tes réponses sont bonnes, tu peux exécuter la commande suivante:
+
+```bash
+npm run test
+```
+
+Les tests sont relancés dès que tu sauvegardes ton fichiers.
+![images/test_not_pass.png](images/test_not_pass.png)
+
+Explication:
+
+- TEST Variables > Exercice 1: L'exercice qui ne valide pas le test
+- Expected / Received: On te montre que l'erreur vient de la valeur reçue
+
+![images/test_all_pass.png](images/test_all_pass.png)
+Lorsque les tests sont tous vert tu peux passer au cours suivant !
+
+---
+
+### Prochain cours : Les numbers 🚀
+
+tu peux maintenant passer au cours suivant !
+
+```shell
+git reset --hard HEAD
+git switch 2-Numbers
 ```
