@@ -1,95 +1,153 @@
-# Description des outils nécessaires
+## Les tableaux (Arrays)
 
-- VS Code
-- Git
-- Node
-- NPM (Node Package Manager)
-- Créer un compte Github si tu n'en possède pas déjà
+Les **arrays** ou tableaux permettent de stocker plusieurs valeurs au même endroit, **peu importe leurs types**.
 
-## VS Code ?
+Par exemple, on peut créer un tableau contenant des `numbers`, des `strings` et des `booléens` (même si cela n’a pas beaucoup de sens 😅) :
 
-VS Code est un éditeur de code puissant et flexible, idéal pour écrire, déboguer et organiser du code JavaScript. Il est doté de nombreuses fonctionnalités comme la coloration syntaxique, la gestion de projets Git intégrée, et des extensions comme ESLint et Prettier pour vous aider à écrire un code propre et structuré.
-
-Dans le cadre de ce cours, vous utiliserez VS Code pour suivre les exercices et explorer les modules. C’est un outil standard dans le monde du développement, et l’apprendre dès maintenant vous donnera une solide base pour travailler sur des projets JavaScript et collaborer efficacement avec d’autres développeurs.
-
-Lien d'installation: https://code.visualstudio.com/
-
-## Git
-
-Git est un outil de contrôle de version qui vous permet de suivre et de gérer les modifications apportées à votre code. Il est utilisé pour collaborer efficacement, revenir à une version précédente en cas d’erreur, et organiser le développement de projets complexes grâce à des branches distinctes pour différentes fonctionnalités ou étapes.
-
-Dans le cadre de ce cours, Git vous permettra d’explorer les différents modules de manière organisée. Chaque module sera placé sur une branche distincte, ce qui vous permettra de naviguer facilement entre les étapes du cours, de comprendre les ajouts progressifs au code, et d’expérimenter sans risque d’altérer le projet principal. C’est une compétence clé pour tout développeur moderne, et ce cours vous aidera à la maîtriser dès le début.
-
-Lien d'installation: https://git-scm.com/
-
-## Node JS
-
-Node.js est un environnement qui permet d’exécuter du code JavaScript en dehors du navigateur, grâce à son moteur JavaScript V8 (le même que celui de Chrome). Contrairement à un navigateur qui exécute JavaScript pour manipuler des pages web, Node.js est conçu pour des applications côté serveur. Cela signifie qu’il vous donne accès à des fonctionnalités supplémentaires, comme la gestion des fichiers, des serveurs, et d'autres outils non disponibles dans un navigateur.
-
-Lien d'installation: https://nodejs.org/en/download
-
-Dans ce cours, Node.js sera utilisé pour exécuter certains scripts JavaScript directement sur votre machine. Par exemple, vous apprendrez à utiliser des bibliothèques qui permettent de lire ou d’écrire dans des fichiers, ce qui est impossible à faire avec JavaScript dans un navigateur. C’est une manière différente mais essentielle d’utiliser JavaScript pour construire des applications plus complexes.
-
-### NPM (Node Package Manager)
-
-npm est un gestionnaire de paquets qui accompagne Node.js. Il vous permet de télécharger, installer et gérer des bibliothèques et outils JavaScript créés par d'autres développeurs, appelés "modules". Ces modules facilitent la création de projets en réutilisant des fonctionnalités existantes au lieu de les coder vous-même.
-
-Dans ce cours, vous utiliserez npm pour installer des modules nécessaires à certains exercices. Par exemple, vous pourriez installer une bibliothèque qui simplifie la manipulation des fichiers ou un outil pour vérifier si votre code respecte les bonnes pratiques. Comprendre npm vous permettra de découvrir et d'intégrer des ressources du vaste écosystème JavaScript dans vos propres projets.
-
-NPM est déjà installer avec NodeJS
-
-# Setup des outils
-
-## Créer ton compte Github
-
-GitHub est une plateforme qui te permet d'entreposer tes projets et des les partager avec d'autres développeurs.
-Afin de pouvoir suivre ce cour, il te sera nécessaire de créer un compte Github afin télécharger les modules nécessaires.
-
-Pour ce faire tu peux suivre ces étapes [Créer un compte Github](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github)
-
-Rend toi sur le repository (l'endroit ou sont entreposés les fichiers du cours) [Code with ashx](https://github.com/ashxjs/codewithashx_exercices) et clique sur le bouton "Code" en haut à droite de l'écran. Sélectionne `HTTPS` et copie le lien.
-
-En passant, tu peux cliquer sur le bouton "Star" pour donner de la force à ce repository.
-
-## Clone le repository
-
-Ouvre Visual Studio Code et déplace toi dans le dossier ou tu veux stocker les fichiers du cours:
-
-- Windows: <kbd>Ctrl</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Mac: <kbd>Cmd</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Ficher => Ouvrir un dossier
-
-Puis ouvre une nouvelle fenêtre de terminal (Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>, Mac: <kbd>Cmd</kbd> + <kbd>J</kbd>)
-
-```bash
-    git clone https://github.com/ashxjs/codewithashx_exercices.git
+```javascript
+const tableau = [1, "Claude", false];
 ```
 
-## Installer les modules
+Un tableau stocke les valeurs **les unes à la suite des autres**, avec une **case mémoire appelée "index"** associée à chaque valeur.
 
-Nous aurons à present devoir installer les modules nécessaires pour le cours. Pour ce faire dans le même terminal ou tu as cloné le repository, tape la commande suivante:
+🚨 **Attention : les index en JavaScript commencent à 0 !**  
+Dans l'exemple ci-dessous, nous avons un tableau de 3 éléments, avec des index allant de 0 à 2:
 
-Npm va nous servir à télécharger toutes les librairies nécessaires pour le cours.
+![./img/tab.png](./img/tab.png)
 
-```bash
-    npm install
+Pour créer un tableau similaire en JavaScript :
+
+```javascript
+const tab = [14, "Claude", false];
 ```
 
-Tu es maintenant prêt à commencer le cours.
+### Accéder à un élément
 
-## Vérifier les versions
+Pour accéder aux éléments d’un tableau, on utilise l’opérateur `[]` et on renseigne l’index voulu.
+Exemple :
 
-Pour vérifier que tout fonctionne bien, tu peux lancer la commande suivante:
-
-```bash
-    npm run postinstall
+```javascript
+const prenom = tab[1]; // 'Claude'
+const age = tab[0]; // 14
+const estMajeur = tab[2]; // false
 ```
 
-Cette commande va vérifier que les versions de Node, Git et NPM sont correctes.
-Si tu as des erreurs, tu peux les résoudre en suivant les instructions de la documentation officielle de Node, Git et NPM.
+### **Connaître la taille d’un tableau**
 
-Pour lancer le cours, tu peux lancer la commande suivante:
+La propriété `length` permet de connaître la taille d’un tableau :
+
+```javascript
+const students = ["Jean", "Louis", "Robert", "John"];
+
+console.log(students.length); // output: 4
+```
+
+```javascript
+const message = "Hello World!";
+console.log(message.length); // output: 12
+```
+
+#### 🏆 Passe à la pratique
+
+1. Exercice 1: Affiche la taille du tableau 'animals'
+2. Exercice 2: Affiche le mot à la 4 position de 'animals'
+3. Exercice 3: Affiche le dernier éléments du tableau
+
+---
+
+# Boucle
+
+Les **boucles** permettent de répéter une série d’actions plusieurs fois.
+
+## Boucles déterministes
+
+Une boucle est dite **déterministe** lorsque le nombre de tours est connu à l’avance.
+Par exemple, afficher un message **10 fois** :
+
+```javascript
+for (let i = 0; i < 10; i++) {
+  console.log("Hello World!");
+}
+```
+
+Ici on affichera le message `Hello World!` 10 fois !
+
+#### **Décortiquons la syntaxe d’une boucle `for` :**
+
+![img/for_loop_syntax.png](img/for_loop_syntax.png)
+
+1️⃣ **Initialisation de l’itérateur** : On initialise une variable, souvent appelée `i`, qui sert à compter les tours de boucle.  
+2️⃣ **Condition de sortie** : Tant que la condition (ici `i < 10`) est vraie, la boucle continue.  
+3️⃣ **Incrémentation** : À chaque tour, on augmente la valeur de `i` (avec `i++`, équivalent à `i = i + 1`).
+
+#### 🏆 Mettons un peu tout ca en pratique
+
+Pour test que ton code est bon, utilise la commande suivante.
+
+```javascript
+npm run test:loop
+```
+
+### 🏆 **Exercices pratiques avec des boucles :**
+
+1. **Affiche les prénoms de tous tes padawans.**
+2. **Trouve le plus grand nombre d’un tableau.**
+3. **Trouve l'intrus**
+
+### Approche plus complexe
+
+En plus de `length`, JavaScript propose des **méthodes puissantes** pour traiter les tableaux. Voici quelques exemples utiles :
+
+#### 1. `filter()`
+
+Renvoie un nouveau tableau contenant tous les éléments du tableau appelant pour lesquels la fonction de filtrage fournie renvoie un résultat positif.
+
+La méthode filter prend en paramètre, une fonction de filtre, ce traitement sera appliqué à chaque élément du tableau. À la fin des traitements, la méthode retournera un tableau contenant les éléments recherchés.
+
+```javascript
+const notes = [12, 8, 7, 2, 18];
+const aboveAverage = notes.filter((note) => note > 10);
+// On creusera la notation dans le prochain cours
+
+console.log(aboveAverage); // output: [12, 18]
+```
+
+Si aucun élément n'a été trouvé, un tableau vide sera retourné.
+
+#### 2. `find()`
+
+La méthode `find()` des instances de tableau renvoie le premier élément du tableau fourni qui satisfait à la fonction de test fournie. Si aucune valeur ne satisfait la fonction de test, la méthode renvoie `undefined`.
+
+```javascript
+const padawans = ["luke", "leïa", "obi-wan", "jar jar", "Qui-Gon"];
+const vaderSon = padawans.find((padawan) => padawan === "luke");
+const soloSon = padawans.find((padawan) => padawan === "kylo");
+// On creusera la notation dans le prochain cours
+
+console.log(vaderSon); // output: 'luke'
+console.log(soloSon); // output: undefined
+```
+
+#### 3. `map()`
+
+The **`map()`** method of **Array** instances creates a new array populated with the results of calling a provided function on every element in the calling array.
+
+```javascript
+const toSquare = [0, 2, 4, 8, 18];
+const squarredValues = toSquare.map((value) => value * value);
+
+console.log(squarredValues); // output: [0, 4, 16, 64, 324]
+```
+
+Tu retrouveras [ici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods) la liste de toutes les méthodes que tu pourras utiliser.
+
+---
+
+### Prochain cours : les fonctions 🚀
+
+tu peux maintenant passer au cours suivant !
 
 ```bash
-    git checkout 1.Variables
+git reset --hard HEAD
+git switch 6-functions
 ```
