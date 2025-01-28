@@ -1,95 +1,206 @@
-# Description des outils nécessaires
+## Structures conditionnelles
 
-- VS Code
-- Git
-- Node
-- NPM (Node Package Manager)
-- Créer un compte Github si tu n'en possède pas déjà
+Imagine que tu es devant un distributeur de boissons :
 
-## VS Code ?
+- **Si** tu appuies sur le bouton de l’eau, tu obtiens de l’eau.
+- **Si** tu appuies sur celui du soda, tu obtiens du soda.
+- Et si tu veux un jus ? Pas de souci, il y a un bouton pour ça aussi !
 
-VS Code est un éditeur de code puissant et flexible, idéal pour écrire, déboguer et organiser du code JavaScript. Il est doté de nombreuses fonctionnalités comme la coloration syntaxique, la gestion de projets Git intégrée, et des extensions comme ESLint et Prettier pour vous aider à écrire un code propre et structuré.
+En algorithme, on utilise des **"si"** et des **"sinon"** pour faire des choix similaires. 🚦
 
-Dans le cadre de ce cours, vous utiliserez VS Code pour suivre les exercices et explorer les modules. C’est un outil standard dans le monde du développement, et l’apprendre dès maintenant vous donnera une solide base pour travailler sur des projets JavaScript et collaborer efficacement avec d’autres développeurs.
+Exemple :
 
-Lien d'installation: https://code.visualstudio.com/
+```javascript
+événement = "eau";
 
-## Git
-
-Git est un outil de contrôle de version qui vous permet de suivre et de gérer les modifications apportées à votre code. Il est utilisé pour collaborer efficacement, revenir à une version précédente en cas d’erreur, et organiser le développement de projets complexes grâce à des branches distinctes pour différentes fonctionnalités ou étapes.
-
-Dans le cadre de ce cours, Git vous permettra d’explorer les différents modules de manière organisée. Chaque module sera placé sur une branche distincte, ce qui vous permettra de naviguer facilement entre les étapes du cours, de comprendre les ajouts progressifs au code, et d’expérimenter sans risque d’altérer le projet principal. C’est une compétence clé pour tout développeur moderne, et ce cours vous aidera à la maîtriser dès le début.
-
-Lien d'installation: https://git-scm.com/
-
-## Node JS
-
-Node.js est un environnement qui permet d’exécuter du code JavaScript en dehors du navigateur, grâce à son moteur JavaScript V8 (le même que celui de Chrome). Contrairement à un navigateur qui exécute JavaScript pour manipuler des pages web, Node.js est conçu pour des applications côté serveur. Cela signifie qu’il vous donne accès à des fonctionnalités supplémentaires, comme la gestion des fichiers, des serveurs, et d'autres outils non disponibles dans un navigateur.
-
-Lien d'installation: https://nodejs.org/en/download
-
-Dans ce cours, Node.js sera utilisé pour exécuter certains scripts JavaScript directement sur votre machine. Par exemple, vous apprendrez à utiliser des bibliothèques qui permettent de lire ou d’écrire dans des fichiers, ce qui est impossible à faire avec JavaScript dans un navigateur. C’est une manière différente mais essentielle d’utiliser JavaScript pour construire des applications plus complexes.
-
-### NPM (Node Package Manager)
-
-npm est un gestionnaire de paquets qui accompagne Node.js. Il vous permet de télécharger, installer et gérer des bibliothèques et outils JavaScript créés par d'autres développeurs, appelés "modules". Ces modules facilitent la création de projets en réutilisant des fonctionnalités existantes au lieu de les coder vous-même.
-
-Dans ce cours, vous utiliserez npm pour installer des modules nécessaires à certains exercices. Par exemple, vous pourriez installer une bibliothèque qui simplifie la manipulation des fichiers ou un outil pour vérifier si votre code respecte les bonnes pratiques. Comprendre npm vous permettra de découvrir et d'intégrer des ressources du vaste écosystème JavaScript dans vos propres projets.
-
-NPM est déjà installer avec NodeJS
-
-# Setup des outils
-
-## Créer ton compte Github
-
-GitHub est une plateforme qui te permet d'entreposer tes projets et des les partager avec d'autres développeurs.
-Afin de pouvoir suivre ce cour, il te sera nécessaire de créer un compte Github afin télécharger les modules nécessaires.
-
-Pour ce faire tu peux suivre ces étapes [Créer un compte Github](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github)
-
-Rend toi sur le repository (l'endroit ou sont entreposés les fichiers du cours) [Code with ashx](https://github.com/ashxjs/codewithashx_exercices) et clique sur le bouton "Code" en haut à droite de l'écran. Sélectionne `HTTPS` et copie le lien.
-
-En passant, tu peux cliquer sur le bouton "Star" pour donner de la force à ce repository.
-
-## Clone le repository
-
-Ouvre Visual Studio Code et déplace toi dans le dossier ou tu veux stocker les fichiers du cours:
-
-- Windows: <kbd>Ctrl</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Mac: <kbd>Cmd</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Ficher => Ouvrir un dossier
-
-Puis ouvre une nouvelle fenêtre de terminal (Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>, Mac: <kbd>Cmd</kbd> + <kbd>J</kbd>)
-
-```bash
-    git clone https://github.com/ashxjs/codewithashx_exercices.git
+// Si l'événement est "eau", donne de l'eau
+// Sinon, donne une autre réponse
+if (événement === "eau") {
+  console.log("Voici de l'eau !");
+} else if (événement === "soda") {
+  console.log("Voici du soda !");
+} else {
+  console.log("Pièce gardée 😅");
+}
 ```
 
-## Installer les modules
+### **La déclaration `if` : le premier bouton de contrôle**
 
-Nous aurons à present devoir installer les modules nécessaires pour le cours. Pour ce faire dans le même terminal ou tu as cloné le repository, tape la commande suivante:
+- **`if`** vérifie une condition et exécute un bloc de code si la condition est vraie.
+- Si la condition n’est pas remplie, **`else`** agit comme un plan B pour exécuter une autre action.
+- Besoin de plus d’options ? Utilise **`else if`** pour tester plusieurs cas.
 
-Npm va nous servir à télécharger toutes les librairies nécessaires pour le cours.
+---
 
-```bash
-    npm install
+## Opérateurs de comparaison (`==`, `!=`, `>`, `<`, `>=`, `<=`, `===`)
+
+Les opérateurs de comparaison servent à évaluer des conditions.
+
+**Exemple:**
+
+```javascript
+const age = 17;
+const estMajeur = age >= 18;
+
+if (estMajeur) {
+  console.log("Je suis majeur");
+} else {
+  console.log("Je suis mineur");
+}
 ```
 
-Tu es maintenant prêt à commencer le cours.
+### **Liste des opérateurs principaux :**
 
-## Vérifier les versions
+#### **1. `==` : l'égalité simple**
 
-Pour vérifier que tout fonctionne bien, tu peux lancer la commande suivante:
+- Compare uniquement les **valeurs** (pas les types).
 
-```bash
-    npm run postinstall
+```javascript
+if (42 == "42") {
+  // ✅ true
+  // Les valeurs sont égales
+}
 ```
 
-Cette commande va vérifier que les versions de Node, Git et NPM sont correctes.
-Si tu as des erreurs, tu peux les résoudre en suivant les instructions de la documentation officielle de Node, Git et NPM.
+#### **2. `===` : l'égalité stricte**
 
-Pour lancer le cours, tu peux lancer la commande suivante:
+- Compare les **valeurs ET les types**.
+
+```javascript
+if (42 === "42") {
+  // ❌ false
+  // Les types ne correspondent pas
+}
+```
+
+#### **3. `!=` : la non-égalité simple**
+
+- Renvoie `true` si les valeurs sont différentes (mais ne compare pas les types).
+
+```javascript
+if ("jean" != "anne") {
+  // ✅ true
+  console.log("Les prénoms sont différents");
+}
+```
+
+#### **4. `!==` : la non-égalité stricte**
+
+- Renvoie `true` si les valeurs ou les types sont différents.
+
+```javascript
+if (42 !== "42") {
+  // ✅ true
+  // Les types diffèrent, donc la condition est remplie
+}
+```
+
+#### **Autres opérateurs courants :**
+
+- **`>`** : Plus grand que
+- **`<`** : Plus petit que
+- **`>=`** : Supérieur ou égal
+- **`<=`** : Inférieur ou égal
+
+---
+
+## **Opérateurs logiques (`&&`, `||`, `!`)**
+
+### 1. L'opérateur ET (`&&`)
+
+Les deux conditions doivent être **vraies** pour que l’ensemble soit évalué à `true`.
+
+```javascript
+const missionAccomplie = true;
+const tuerLeBoss = false;
+
+if (missionAccomplie && tuerLeBoss) {
+  console.log("Tu passes au niveau supérieur !");
+} else {
+  console.log("Termine tes quêtes d'abord !");
+}
+```
+
+| Condition gauche | Condition droite | Résultat |
+| :--------------- | ---------------- | -------- |
+| `true`           | `true`           | ✅       |
+| `true`           | `false`          | ❌       |
+| `false`          | `false`          | ❌       |
+| `false`          | `true`           | ❌       |
+
+---
+
+### 2. L'opérateur OU (`||`)
+
+Il suffit qu’une des deux conditions soit vraie pour que l’ensemble soit évalué à `true`.
+
+```javascript
+const vie = 0;
+const estTombe = false;
+
+if (vie <= 0 || estTombe) {
+  console.log("Game Over !");
+} else {
+  console.log("Continue à jouer !");
+}
+```
+
+| Condition gauche | Condition droite | Résultat |
+| ---------------- | ---------------- | -------- |
+| `true`           | `true`           | ✅       |
+| `true`           | `false`          | ✅       |
+| `false`          | `false`          | ❌       |
+| `false`          | `true`           | ✅       |
+
+---
+
+### 3. L'opérateur NON (!)
+
+Inverse une valeur booléenne :
+
+```javascript
+const accepterNewsletter = true;
+
+if (!accepterNewsletter) {
+  console.log("Pas d'email envoyé !");
+} else {
+  console.log("Envoi des emails activé !");
+}
+```
+
+---
+
+## **Les Booléens (`true`, `false`)**
+
+Les booléens sont des valeurs simples : **`true`** ou **`false`**.  
+Ils sont essentiels pour vérifier des conditions.
+
+```javascript
+const accepterNewsletter = true;
+
+if (accepterNewsletter) {
+  console.log("On peut envoyer des mails !");
+} else {
+  console.log("Pas d'email envoyé !");
+}
+```
+
+---
+
+🏆 **Exercice pratique**
+Crée un code qui simule un distributeur automatique de boissons :
+
+1. Si on appuie sur "eau", le distributeur donne de l’eau.
+2. Si on appuie sur "soda", le distributeur donne du soda.
+3. Sinon, le distributeur garde la pièce.
+
+---
+
+### Prochain cours : Les tableaux 🚦
+
+Quand vous avez terminé, passez au cours suivant sur les conditions :
 
 ```bash
-    git checkout 1.Variables
+git reset --hard HEAD
+git switch 5-Arrays
 ```
