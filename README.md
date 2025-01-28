@@ -1,95 +1,148 @@
-# Description des outils nécessaires
+# Les strings
 
-- VS Code
-- Git
-- Node
-- NPM (Node Package Manager)
-- Créer un compte Github si tu n'en possède pas déjà
+Une **string** représente une chaîne de caractères, que ce soit un mot, une phrase, ou même un caractère unique. Voici trois façons de déclarer une string en JavaScript :
 
-## VS Code ?
+```javascript
+const name = "John"; // string avec double quote "
+const dog = "robert"; // string avec simple quote
+const whoAmI = `je m'appelle ${name}`; // template string avec backtick
 
-VS Code est un éditeur de code puissant et flexible, idéal pour écrire, déboguer et organiser du code JavaScript. Il est doté de nombreuses fonctionnalités comme la coloration syntaxique, la gestion de projets Git intégrée, et des extensions comme ESLint et Prettier pour vous aider à écrire un code propre et structuré.
-
-Dans le cadre de ce cours, vous utiliserez VS Code pour suivre les exercices et explorer les modules. C’est un outil standard dans le monde du développement, et l’apprendre dès maintenant vous donnera une solide base pour travailler sur des projets JavaScript et collaborer efficacement avec d’autres développeurs.
-
-Lien d'installation: https://code.visualstudio.com/
-
-## Git
-
-Git est un outil de contrôle de version qui vous permet de suivre et de gérer les modifications apportées à votre code. Il est utilisé pour collaborer efficacement, revenir à une version précédente en cas d’erreur, et organiser le développement de projets complexes grâce à des branches distinctes pour différentes fonctionnalités ou étapes.
-
-Dans le cadre de ce cours, Git vous permettra d’explorer les différents modules de manière organisée. Chaque module sera placé sur une branche distincte, ce qui vous permettra de naviguer facilement entre les étapes du cours, de comprendre les ajouts progressifs au code, et d’expérimenter sans risque d’altérer le projet principal. C’est une compétence clé pour tout développeur moderne, et ce cours vous aidera à la maîtriser dès le début.
-
-Lien d'installation: https://git-scm.com/
-
-## Node JS
-
-Node.js est un environnement qui permet d’exécuter du code JavaScript en dehors du navigateur, grâce à son moteur JavaScript V8 (le même que celui de Chrome). Contrairement à un navigateur qui exécute JavaScript pour manipuler des pages web, Node.js est conçu pour des applications côté serveur. Cela signifie qu’il vous donne accès à des fonctionnalités supplémentaires, comme la gestion des fichiers, des serveurs, et d'autres outils non disponibles dans un navigateur.
-
-Lien d'installation: https://nodejs.org/en/download
-
-Dans ce cours, Node.js sera utilisé pour exécuter certains scripts JavaScript directement sur votre machine. Par exemple, vous apprendrez à utiliser des bibliothèques qui permettent de lire ou d’écrire dans des fichiers, ce qui est impossible à faire avec JavaScript dans un navigateur. C’est une manière différente mais essentielle d’utiliser JavaScript pour construire des applications plus complexes.
-
-### NPM (Node Package Manager)
-
-npm est un gestionnaire de paquets qui accompagne Node.js. Il vous permet de télécharger, installer et gérer des bibliothèques et outils JavaScript créés par d'autres développeurs, appelés "modules". Ces modules facilitent la création de projets en réutilisant des fonctionnalités existantes au lieu de les coder vous-même.
-
-Dans ce cours, vous utiliserez npm pour installer des modules nécessaires à certains exercices. Par exemple, vous pourriez installer une bibliothèque qui simplifie la manipulation des fichiers ou un outil pour vérifier si votre code respecte les bonnes pratiques. Comprendre npm vous permettra de découvrir et d'intégrer des ressources du vaste écosystème JavaScript dans vos propres projets.
-
-NPM est déjà installer avec NodeJS
-
-# Setup des outils
-
-## Créer ton compte Github
-
-GitHub est une plateforme qui te permet d'entreposer tes projets et des les partager avec d'autres développeurs.
-Afin de pouvoir suivre ce cour, il te sera nécessaire de créer un compte Github afin télécharger les modules nécessaires.
-
-Pour ce faire tu peux suivre ces étapes [Créer un compte Github](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github)
-
-Rend toi sur le repository (l'endroit ou sont entreposés les fichiers du cours) [Code with ashx](https://github.com/ashxjs/codewithashx_exercices) et clique sur le bouton "Code" en haut à droite de l'écran. Sélectionne `HTTPS` et copie le lien.
-
-En passant, tu peux cliquer sur le bouton "Star" pour donner de la force à ce repository.
-
-## Clone le repository
-
-Ouvre Visual Studio Code et déplace toi dans le dossier ou tu veux stocker les fichiers du cours:
-
-- Windows: <kbd>Ctrl</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Mac: <kbd>Cmd</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Ficher => Ouvrir un dossier
-
-Puis ouvre une nouvelle fenêtre de terminal (Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>, Mac: <kbd>Cmd</kbd> + <kbd>J</kbd>)
-
-```bash
-    git clone https://github.com/ashxjs/codewithashx_exercices.git
+console.log(whoAmI); // output 'je m'appelle John
 ```
 
-## Installer les modules
+**Exemple d'utilisation :**
 
-Nous aurons à present devoir installer les modules nécessaires pour le cours. Pour ce faire dans le même terminal ou tu as cloné le repository, tape la commande suivante:
-
-Npm va nous servir à télécharger toutes les librairies nécessaires pour le cours.
-
-```bash
-    npm install
+```javascript
+const whoAmI = "Ashx";
+console.log(whoAmI); // output: Ashx
 ```
 
-Tu es maintenant prêt à commencer le cours.
+**Trois types de strings :**
 
-## Vérifier les versions
+- Double quote (`"`)
+- Simple quote (`'`)
+- BackTick (\`)
 
-Pour vérifier que tout fonctionne bien, tu peux lancer la commande suivante:
+💡 **Note :** Il n'y a **aucune différence fonctionnelle** entre ces trois façons de déclarer une string. Cependant, les **template strings** (avec backticks) sont pratiques pour inclure des variables ou effectuer des interpolations directement dans une chaîne de caractères.
 
-```bash
-    npm run postinstall
+**Exemple avec une template string :**
+
+```javascript
+const sender = "Gérard";
+const receiver = "Marcelle";
+
+const message = `
+	Hey ${receiver} 👋,
+
+	Tu serais intéressé pour rejoindre une super formation ?
+
+	Bien à toi,
+	${sender}
+`;
 ```
 
-Cette commande va vérifier que les versions de Node, Git et NPM sont correctes.
-Si tu as des erreurs, tu peux les résoudre en suivant les instructions de la documentation officielle de Node, Git et NPM.
+---
 
-Pour lancer le cours, tu peux lancer la commande suivante:
+**Convertir une valeur en string**
+Pour transformer une valeur en string, vous pouvez utiliser la fonction `String()` :
+
+```javascript
+const age = String("42"); // "42"
+const isString = String(true); // "true"
+const price = String("1.20"); // "1.2"
+```
+
+### **Forme complexe : Strings et index**
+
+Les strings en JavaScript sont stockées comme des **tableaux de caractères**.  
+Chaque caractère est assigné à une **position spécifique appelée "index"** dans le tableau.
+
+#### Exemple :
+
+Prenons la chaîne `"Hello"`, qui contient 5 lettres :
+![images/string-table.png](images/string-table.png)
+
+Chaque index du tableau contient 1 caractère, en Javascript et dans beaucoup d'autre langage, le premier index est 0.
+
+| index  |  0  |  1  |  2  |  3  |  4  |
+| :----: | :-: | :-: | :-: | :-: | :-: |
+| valeur |  H  |  E  |  L  |  L  |  0  |
+
+![images/string-table-index.png](images/string-table-index.png)
+
+Pour accéder à un caractère particulier, utilisez l’opérateur `[]` avec l’index souhaité :
+
+```javascript
+const str = "Hello";
+console.log(str[4]); // output: "o"
+```
+
+---
+
+### \*\*Connaître la longueur d’une string
+
+La propriété `length` permet de connaître la taille d’une string (c'est-à-dire le nombre de caractères qu’elle contient) :
+
+```javascript
+const str = "Bienvenue";
+console.log(str.length); // output: 9
+```
+
+---
+
+### Approches avancées : Méthodes pour manipuler les strings
+
+En plus de `length`, JavaScript propose des **méthodes** pour traiter les strings. Voici quelques exemples utiles :
+
+1. `toUpperCase()`
+   La méthode **`toUpperCase()`** retourne la valeur de la chaîne courante, convertie en majuscules.
+
+```javascript
+const name = "John";
+console.log(name.toUpperCase()); // output: "JOHN"
+```
+
+2. `toLowerCase()`
+   La méthode **`toLowerCase()`** retourne la chaîne de caractères courante en minuscules.
+
+   ```javascript
+   const name = "JOHN";
+   console.log(name.toLowerCase()); // output: john
+   ```
+
+3. `includes()`
+   La méthode **`includes()`** détermine si une chaîne de caractères est contenue dans une autre et renvoie `true` ou `false` selon le cas de figure.
+
+   ```javascript
+   const str = "Hello World";
+   console.log(str.includes("World")); // output: true
+   console.log(str.includes("bonjour")); // output: false
+   ```
+
+4. `split()`
+   Découpe une chaîne en plusieurs sous-chaînes selon un séparateur, et renvoie un tableau contenant ces sous-chaînes :
+
+   ```javascript
+   const str = "The fox is red";
+   console.log(str.split("fox")); // output: ['The ', ' is red']
+   ```
+
+5. `replace()`
+   Remplace une partie d’une chaîne par une autre. Seule la **première correspondance** sera remplacée :
+
+```javascript
+const paragraph = "I think Ruth's dog is cuter than your dog!";
+console.log(paragraph.replace("Ruth's", "my"));
+// Expected output: "I think my dog is cuter than your dog!"
+```
+
+---
+
+### Prochain cours : Les conditions 🚦
+
+Quand vous avez terminé, passez au cours suivant sur les conditions :
 
 ```bash
-    git checkout 1.Variables
+git reset --hard HEAD
+git switch 4-Conditions
 ```
