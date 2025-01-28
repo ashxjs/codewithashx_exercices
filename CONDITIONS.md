@@ -1,36 +1,42 @@
 ## Structures conditionnelles
 
-Imagine que tu es devant un distributeur de boissons : si tu appuies sur le bouton de l'eau, tu obtiens de l'eau. Si tu appuies sur celui du soda, tu obtiens du soda. Et si tu veux un jus ? Pas de souci, il y a un bouton pour ça aussi ! En algorithme, on utilise des **"si"** et des **"sinon"** pour faire des choix similaires. 🚦
+Imagine que tu es devant un distributeur de boissons :
 
-`événement = "eau"`
+- **Si** tu appuies sur le bouton de l’eau, tu obtiens de l’eau.
+- **Si** tu appuies sur celui du soda, tu obtiens du soda.
+- Et si tu veux un jus ? Pas de souci, il y a un bouton pour ça aussi !
 
-- **Si** l'événement est égal à "eau", **alors** donne de l'eau.
-- **Si** l'événement est égal à "soda", **alors** donne du soda.
-- **Sinon**, garde la pièce du client (et avoue, ça t’est sûrement déjà arrivé ! 😅).
+En algorithme, on utilise des **"si"** et des **"sinon"** pour faire des choix similaires. 🚦
 
-La déclaration `if` est comme ton premier bouton. Elle dit à ton programme : "Hey, si cette condition est vraie, fais ceci !" 👉👈. C’est la base de la prise de décision dans ton code.
-
-Mais que se passe-t-il si la condition `if` n’est pas remplie ? Là, l'instruction **`else`** entre en jeu comme un plan B. Elle signifie : "Ok, si la première condition n’est pas vraie, faisons autre chose." 🔄
-
-Parfois, les choses sont plus complexes, et tu as besoin de plusieurs options. Dans ce cas, **`else if`** est là pour t’aider. Il te permet de tester plusieurs conditions différentes, comme choisir entre de l’eau, du soda ou du jus. 🥤
-
-Voici comment cela se traduirait en JavaScript :
+Exemple :
 
 ```javascript
-if (condition) {
-  return "water";
+événement = "eau";
+
+// Si l'événement est "eau", donne de l'eau
+// Sinon, donne une autre réponse
+if (événement === "eau") {
+  console.log("Voici de l'eau !");
+} else if (événement === "soda") {
+  console.log("Voici du soda !");
 } else {
-  return "coca";
+  console.log("Pièce gardée 😅");
 }
 ```
 
-🏆 Exercice : Écris le code qui simule un distributeur automatique de boissons !
+### **La déclaration `if` : le premier bouton de contrôle**
+
+- **`if`** vérifie une condition et exécute un bloc de code si la condition est vraie.
+- Si la condition n’est pas remplie, **`else`** agit comme un plan B pour exécuter une autre action.
+- Besoin de plus d’options ? Utilise **`else if`** pour tester plusieurs cas.
+
+---
 
 ## Opérateurs de comparaison (`==`, `!=`, `>`, `<`, `>=`, `<=`, `===`)
 
-Les opérateurs de comparaison permettent d’évaluer des conditions dans ton code.
+Les opérateurs de comparaison servent à évaluer des conditions.
 
-Par exemple :
+**Exemple:**
 
 ```javascript
 const age = 17;
@@ -43,139 +49,158 @@ if (estMajeur) {
 }
 ```
 
-### Liste des principaux opérateurs :
+### **Liste des opérateurs principaux :**
 
-#### `==` : l'opérateur d'égalité
+#### **1. `==` : l'égalité simple**
 
-Permet de comparer deux valeurs.
-
-```javascript
-if (42 == 42) {
-  // ✅ true !
-  // valeur égale
-}
-```
-
-🚨 Attention : en JavaScript, cet opérateur compare uniquement les **valeurs** et non les **types**.
+- Compare uniquement les **valeurs** (pas les types).
 
 ```javascript
 if (42 == "42") {
-  // ✅ true !
-  // 🚨 Cela peut entraîner des comportements inattendus
+  // ✅ true
+  // Les valeurs sont égales
 }
 ```
 
-#### `===` : l'opérateur d'égalité stricte
+#### **2. `===` : l'égalité stricte**
 
-Contrairement à `==`, il compare à la fois les **valeurs** et les **types**.
+- Compare les **valeurs ET les types**.
 
 ```javascript
 if (42 === "42") {
-  // ❌ false !
-  // Les valeurs sont égales, donc la condition n'est pas remplie
+  // ❌ false
+  // Les types ne correspondent pas
 }
 ```
 
-#### `!=` : l'opérateur de non-égalité
+#### **3. `!=` : la non-égalité simple**
 
-Retourne `true` si les valeurs ne sont pas égales.
-🚨 Cependant, il ne compare pas les types :
+- Renvoie `true` si les valeurs sont différentes (mais ne compare pas les types).
 
 ```javascript
-const prenom = "jean";
-
-if (prenom != "anne") {
-  console.log(prenom);
+if ("jean" != "anne") {
+  // ✅ true
+  console.log("Les prénoms sont différents");
 }
 ```
 
-#### `!==` : l'opérateur de non-égalité stricte
+#### **4. `!==` : la non-égalité stricte**
 
-Compare les valeurs **et** les types.
+- Renvoie `true` si les valeurs ou les types sont différents.
 
 ```javascript
 if (42 !== "42") {
-  // ✅ true !
-  // Les types sont différents, donc la condition est remplie
+  // ✅ true
+  // Les types diffèrent, donc la condition est remplie
 }
 ```
 
-#### Autres opérateurs :
+#### **Autres opérateurs courants :**
 
 - **`>`** : Plus grand que
 - **`<`** : Plus petit que
 - **`>=`** : Supérieur ou égal
 - **`<=`** : Inférieur ou égal
 
-## Opérateurs logiques (`and`, `or`, `not`)
+---
 
-### L'opérateur **ET** (`&&`)
+## **Opérateurs logiques (`&&`, `||`, `!`)**
 
-Les opérateurs logiques permettent de combiner plusieurs conditions. L’opérateur **ET** (`&&`) exige que **toutes** les conditions soient vraies.
+### 1. L'opérateur ET (`&&`)
+
+Les deux conditions doivent être **vraies** pour que l’ensemble soit évalué à `true`.
 
 ```javascript
 const missionAccomplie = true;
 const tuerLeBoss = false;
-const passerAuNiveauSupérieur = missionAccomplie && tuerLeBoss;
 
-if (passerAuNiveauSupérieur) {
-  // On ouvre la porte
+if (missionAccomplie && tuerLeBoss) {
+  console.log("Tu passes au niveau supérieur !");
 } else {
-  // Message : "Termine tes quêtes d'abord !"
+  console.log("Termine tes quêtes d'abord !");
 }
 ```
 
-Voici un petit tableau qui permet de comprendre comment seront évaluer les différentes combinaison
+| Condition gauche | Condition droite | Résultat |
+| :--------------- | ---------------- | -------- |
+| `true`           | `true`           | ✅       |
+| `true`           | `false`          | ❌       |
+| `false`          | `false`          | ❌       |
+| `false`          | `true`           | ❌       |
 
-| Condition de gauche   | Condition de droite | résultat                                                                              |
-| --------------------- | ------------------- | ------------------------------------------------------------------------------------- |
-| `true`                | `true`              | ✅                                                                                    |
-| `true`                | `false`             | ❌                                                                                    |
-| `false`               | `false`             | ❌                                                                                    |
-| `false`               | `true`              | ❌                                                                                    |
-| ### L'opérateur OU (` |                     | `)                                                                                    |
-| Avec **OU** (`        |                     | `), il suffit qu’une des deux conditions soit vraie pour que l’évaluation soit vraie. |
+---
+
+### 2. L'opérateur OU (`||`)
+
+Il suffit qu’une des deux conditions soit vraie pour que l’ensemble soit évalué à `true`.
 
 ```javascript
 const vie = 0;
 const estTombe = false;
-const gameOver = vie <= 0 || estTombe;
 
-if (gameOver) {
-  // Afficher l'écran de fin de jeu
+if (vie <= 0 || estTombe) {
+  console.log("Game Over !");
+} else {
+  console.log("Continue à jouer !");
 }
 ```
 
-| valeur de gauche | valeur de droite | résultat |
+| Condition gauche | Condition droite | Résultat |
 | ---------------- | ---------------- | -------- |
 | `true`           | `true`           | ✅       |
 | `true`           | `false`          | ✅       |
 | `false`          | `false`          | ❌       |
 | `false`          | `true`           | ✅       |
 
-### L'opérateur **NON** (`!`)
+---
 
-Inverse la valeur d’un booléen :
+### 3. L'opérateur NON (!)
+
+Inverse une valeur booléenne :
 
 ```javascript
 const accepterNewsletter = true;
 
 if (!accepterNewsletter) {
   console.log("Pas d'email envoyé !");
+} else {
+  console.log("Envoi des emails activé !");
 }
 ```
 
-## Les Booléens (`true`,`false`)
+---
 
-On l'a vu plus haut, les booléens sont des valeurs simple, vrai ou faux.
-Ils nous servent à verifier que des condition sont vrai ou fausse.
+## **Les Booléens (`true`, `false`)**
+
+Les booléens sont des valeurs simples : **`true`** ou **`false`**.  
+Ils sont essentiels pour vérifier des conditions.
 
 ```javascript
 const accepterNewsletter = true;
 
 if (accepterNewsletter) {
-  // on peut envoyer des mails
+  console.log("On peut envoyer des mails !");
 } else {
-  // on enverra pas d'email
+  console.log("Pas d'email envoyé !");
 }
+```
+
+---
+
+🏆 **Exercice pratique**
+Crée un code qui simule un distributeur automatique de boissons :
+
+1. Si on appuie sur "eau", le distributeur donne de l’eau.
+2. Si on appuie sur "soda", le distributeur donne du soda.
+3. Sinon, le distributeur garde la pièce.
+
+---
+
+### Prochain cours : Les tableaux 🚦
+
+Quand vous avez terminé, passez au cours suivant sur les conditions :
+
+```bash
+git reset --hard HEAD
+git switch 5-Arrays
 ```
