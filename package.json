@@ -6,7 +6,9 @@
   "scripts": {
     "postinstall": "echo \"Node version: $(node --version)\" && echo \"Git version: $(git --version)\" && echo \"NPM version: $(npm --version)\"",
     "test": "npx jest --watch",
-    "update:courses": "git fetch -a"
+    "update:courses": "git fetch -a",
+    "test:loop": "npx jest loop.test.js --watch",
+    "test:array": "npx jest array.test.js --watch"
   },
   "author": "",
   "license": "ISC",
