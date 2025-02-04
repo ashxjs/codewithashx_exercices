@@ -1,95 +1,161 @@
-# Description des outils nécessaires
+# Les fonctions
 
-- VS Code
-- Git
-- Node
-- NPM (Node Package Manager)
-- Créer un compte Github si tu n'en possède pas déjà
+## C'est quoi une fonction ?
 
-## VS Code ?
-
-VS Code est un éditeur de code puissant et flexible, idéal pour écrire, déboguer et organiser du code JavaScript. Il est doté de nombreuses fonctionnalités comme la coloration syntaxique, la gestion de projets Git intégrée, et des extensions comme ESLint et Prettier pour vous aider à écrire un code propre et structuré.
-
-Dans le cadre de ce cours, vous utiliserez VS Code pour suivre les exercices et explorer les modules. C’est un outil standard dans le monde du développement, et l’apprendre dès maintenant vous donnera une solide base pour travailler sur des projets JavaScript et collaborer efficacement avec d’autres développeurs.
-
-Lien d'installation: https://code.visualstudio.com/
-
-## Git
-
-Git est un outil de contrôle de version qui vous permet de suivre et de gérer les modifications apportées à votre code. Il est utilisé pour collaborer efficacement, revenir à une version précédente en cas d’erreur, et organiser le développement de projets complexes grâce à des branches distinctes pour différentes fonctionnalités ou étapes.
-
-Dans le cadre de ce cours, Git vous permettra d’explorer les différents modules de manière organisée. Chaque module sera placé sur une branche distincte, ce qui vous permettra de naviguer facilement entre les étapes du cours, de comprendre les ajouts progressifs au code, et d’expérimenter sans risque d’altérer le projet principal. C’est une compétence clé pour tout développeur moderne, et ce cours vous aidera à la maîtriser dès le début.
-
-Lien d'installation: https://git-scm.com/
-
-## Node JS
-
-Node.js est un environnement qui permet d’exécuter du code JavaScript en dehors du navigateur, grâce à son moteur JavaScript V8 (le même que celui de Chrome). Contrairement à un navigateur qui exécute JavaScript pour manipuler des pages web, Node.js est conçu pour des applications côté serveur. Cela signifie qu’il vous donne accès à des fonctionnalités supplémentaires, comme la gestion des fichiers, des serveurs, et d'autres outils non disponibles dans un navigateur.
-
-Lien d'installation: https://nodejs.org/en/download
-
-Dans ce cours, Node.js sera utilisé pour exécuter certains scripts JavaScript directement sur votre machine. Par exemple, vous apprendrez à utiliser des bibliothèques qui permettent de lire ou d’écrire dans des fichiers, ce qui est impossible à faire avec JavaScript dans un navigateur. C’est une manière différente mais essentielle d’utiliser JavaScript pour construire des applications plus complexes.
-
-### NPM (Node Package Manager)
-
-npm est un gestionnaire de paquets qui accompagne Node.js. Il vous permet de télécharger, installer et gérer des bibliothèques et outils JavaScript créés par d'autres développeurs, appelés "modules". Ces modules facilitent la création de projets en réutilisant des fonctionnalités existantes au lieu de les coder vous-même.
-
-Dans ce cours, vous utiliserez npm pour installer des modules nécessaires à certains exercices. Par exemple, vous pourriez installer une bibliothèque qui simplifie la manipulation des fichiers ou un outil pour vérifier si votre code respecte les bonnes pratiques. Comprendre npm vous permettra de découvrir et d'intégrer des ressources du vaste écosystème JavaScript dans vos propres projets.
-
-NPM est déjà installer avec NodeJS
-
-# Setup des outils
-
-## Créer ton compte Github
-
-GitHub est une plateforme qui te permet d'entreposer tes projets et des les partager avec d'autres développeurs.
-Afin de pouvoir suivre ce cour, il te sera nécessaire de créer un compte Github afin télécharger les modules nécessaires.
-
-Pour ce faire tu peux suivre ces étapes [Créer un compte Github](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github)
-
-Rend toi sur le repository (l'endroit ou sont entreposés les fichiers du cours) [Code with ashx](https://github.com/ashxjs/codewithashx_exercices) et clique sur le bouton "Code" en haut à droite de l'écran. Sélectionne `HTTPS` et copie le lien.
-
-En passant, tu peux cliquer sur le bouton "Star" pour donner de la force à ce repository.
-
-## Clone le repository
-
-Ouvre Visual Studio Code et déplace toi dans le dossier ou tu veux stocker les fichiers du cours:
-
-- Windows: <kbd>Ctrl</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Mac: <kbd>Cmd</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Ficher => Ouvrir un dossier
-
-Puis ouvre une nouvelle fenêtre de terminal (Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>, Mac: <kbd>Cmd</kbd> + <kbd>J</kbd>)
+Une fonction, c'est quelque chose qui te permet de répéter une portion de code. Prenons un exemple avec la vaisselle. On pourrait créer une suite d'instructions suivante :
 
 ```bash
-    git clone https://github.com/ashxjs/codewithashx_exercices.git
+# prendre une assiette
+# prendre une éponge
+# laver l'assiette
+# la poser
 ```
 
-## Installer les modules
+Écrivons ensemble le code de cette fonction :
 
-Nous aurons à present devoir installer les modules nécessaires pour le cours. Pour ce faire dans le même terminal ou tu as cloné le repository, tape la commande suivante:
-
-Npm va nous servir à télécharger toutes les librairies nécessaires pour le cours.
-
-```bash
-    npm install
+```javascript
+function faireLaVaisselle() {
+  // prendre une assiette
+  // prendre une éponge
+  // laver l'assiette
+  // la poser
+}
 ```
 
-Tu es maintenant prêt à commencer le cours.
+---
 
-## Vérifier les versions
+## Comment on en crée une ?
 
-Pour vérifier que tout fonctionne bien, tu peux lancer la commande suivante:
+En **JavaScript**, il existe plusieurs façons de créer des fonctions.
 
-```bash
-    npm run postinstall
+### Syntaxe de base
+
+Pour déclarer une fonction, on utilise le mot-clé `function` suivi du nom de la fonction.  
+On ajoute des parenthèses `()` (je t’expliquerai pourquoi un peu plus bas), puis des accolades `{}` pour contenir le code.
+
+```javascript
+// sytax de base
+function faireLaVaisselle() {
+  // code
+}
+
+// syntax 'Fat arrow'
+const faireLaVaisselle = () => {
+  // code
+};
 ```
 
-Cette commande va vérifier que les versions de Node, Git et NPM sont correctes.
-Si tu as des erreurs, tu peux les résoudre en suivant les instructions de la documentation officielle de Node, Git et NPM.
+### Syntaxe avec "Fat Arrow"
 
-Pour lancer le cours, tu peux lancer la commande suivante:
+Une autre manière d'écrire une fonction est d'utiliser **l'arrow function** :
 
-```bash
-    git checkout 1.Variables
+```javascript
+const faireLaVaisselle = () => {
+  // code
+};
 ```
+
+💡 Toutes les variables déclarées à l'intérieur d'une fonction (dans `{}`) **ne sont accessibles qu'à l'intérieur de celle-ci** !
+
+Exemple:
+
+```javascript
+function myName() {
+  const name = "John";
+  console.log(name); // output: "John"
+}
+
+console.log(name); // output: undefined
+```
+
+Le moteur **JavaScript** va allouer de la mémoire pour la variable `name`, puis la libérer une fois la fonction terminée.
+
+---
+
+### Appeler une fonction
+
+Pour exécuter une fonction, on utilise son **nom** suivi de **parenthèses `()`** :
+
+```javascript
+function whoAmI() {
+  const name = "John";
+  console.log(name); // output: "John"
+}
+
+whoAmI(); // Appel de la fonction
+```
+
+---
+
+## Les paramètres
+
+Une fonction peut recevoir des **paramètres**, qui sont des valeurs utilisées dans son exécution.
+
+**Exemple** :
+
+```javascript
+const displayName = (name) => {
+  console.log(`Je m'appelle ${name}`);
+};
+
+const name = "Alexis";
+displayName(name); // output: "Je m'appelle Alexis"
+displayName("Eva"); // output: "Je m'appelle Eva"
+```
+
+Grâce aux paramètres, la fonction devient **plus générique** et peut être réutilisée avec différentes valeurs.
+
+---
+
+## Le `return`
+
+Une fonction peut **retourner une valeur** grâce au mot-clé `return`. Cela permet de récupérer le résultat d’un calcul ou d’une opération.
+
+```javascript
+function addition(a, b) {
+  return a + b;
+}
+
+const result = addition(5, 25); // output: 30
+const second = addition(1, 0); // output: 1
+```
+
+---
+
+### Les fonctions anonymes
+
+Certaines fonctions n'ont **pas de nom**. Cela peut sembler étrange, mais c'est très pratique !
+
+Exemple avec `.filter()` :
+
+```javascript
+const data = ["jean", 19, {}, undefined, 10, null, 8, 1, "pierre"];
+const numbers = data.filter((element) => typeof element === "number");
+// Reviens au même que :
+const keepNumber = (element) => {
+  return typeof element === "number";
+};
+
+const numbers2 = data.filter((element) => keepNumber(element));
+```
+
+---
+
+## 🏆 **Un peu de pratique**
+
+1. **Exercice 1** : Créer une fonction `square` qui prend en paramètre un nombre et retourne ce nombre **au carré**.  
+   _(Si on donne 2, la fonction retourne 4)._
+1. **Exercice 2** : Créer une fonction `isString` qui prend un paramètre et **retourne `true` si c'est une string**, sinon `false`.
+1. **Exercice 3** : Créer une fonction `capitalize` qui met la **première lettre d'un mot en majuscule**.
+
+- Utilise la fonction `isString` pour vérifier si le paramètre est bien une string.
+- Si ce n'est pas une string, la fonction retourne `undefined`.
+
+⚠️ **Avant de coder, décompose le problème en plusieurs étapes pour progresser pas à pas.**
+
+| Test |  paramètre   |    retour    |
+| :--: | :----------: | :----------: |
+|  1   | "hello word" | "Hello word" |
+|  2   |      42      |  undefined   |
+|  3   |     true     |  undefined   |
+|  4   | "bienvenue"  | "Bienvenue"  |
