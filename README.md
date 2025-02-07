@@ -1,95 +1,305 @@
-# Description des outils nécessaires
+# Les objets en JavaScript
 
-- VS Code
-- Git
-- Node
-- NPM (Node Package Manager)
-- Créer un compte Github si tu n'en possède pas déjà
+## **Qu'est-ce qu'un objet ?**
 
-## VS Code ?
+Un objet est une structure de données qui permet de stocker des informations sous forme de **paires clé/valeur**.
 
-VS Code est un éditeur de code puissant et flexible, idéal pour écrire, déboguer et organiser du code JavaScript. Il est doté de nombreuses fonctionnalités comme la coloration syntaxique, la gestion de projets Git intégrée, et des extensions comme ESLint et Prettier pour vous aider à écrire un code propre et structuré.
-
-Dans le cadre de ce cours, vous utiliserez VS Code pour suivre les exercices et explorer les modules. C’est un outil standard dans le monde du développement, et l’apprendre dès maintenant vous donnera une solide base pour travailler sur des projets JavaScript et collaborer efficacement avec d’autres développeurs.
-
-Lien d'installation: https://code.visualstudio.com/
-
-## Git
-
-Git est un outil de contrôle de version qui vous permet de suivre et de gérer les modifications apportées à votre code. Il est utilisé pour collaborer efficacement, revenir à une version précédente en cas d’erreur, et organiser le développement de projets complexes grâce à des branches distinctes pour différentes fonctionnalités ou étapes.
-
-Dans le cadre de ce cours, Git vous permettra d’explorer les différents modules de manière organisée. Chaque module sera placé sur une branche distincte, ce qui vous permettra de naviguer facilement entre les étapes du cours, de comprendre les ajouts progressifs au code, et d’expérimenter sans risque d’altérer le projet principal. C’est une compétence clé pour tout développeur moderne, et ce cours vous aidera à la maîtriser dès le début.
-
-Lien d'installation: https://git-scm.com/
-
-## Node JS
-
-Node.js est un environnement qui permet d’exécuter du code JavaScript en dehors du navigateur, grâce à son moteur JavaScript V8 (le même que celui de Chrome). Contrairement à un navigateur qui exécute JavaScript pour manipuler des pages web, Node.js est conçu pour des applications côté serveur. Cela signifie qu’il vous donne accès à des fonctionnalités supplémentaires, comme la gestion des fichiers, des serveurs, et d'autres outils non disponibles dans un navigateur.
-
-Lien d'installation: https://nodejs.org/en/download
-
-Dans ce cours, Node.js sera utilisé pour exécuter certains scripts JavaScript directement sur votre machine. Par exemple, vous apprendrez à utiliser des bibliothèques qui permettent de lire ou d’écrire dans des fichiers, ce qui est impossible à faire avec JavaScript dans un navigateur. C’est une manière différente mais essentielle d’utiliser JavaScript pour construire des applications plus complexes.
-
-### NPM (Node Package Manager)
-
-npm est un gestionnaire de paquets qui accompagne Node.js. Il vous permet de télécharger, installer et gérer des bibliothèques et outils JavaScript créés par d'autres développeurs, appelés "modules". Ces modules facilitent la création de projets en réutilisant des fonctionnalités existantes au lieu de les coder vous-même.
-
-Dans ce cours, vous utiliserez npm pour installer des modules nécessaires à certains exercices. Par exemple, vous pourriez installer une bibliothèque qui simplifie la manipulation des fichiers ou un outil pour vérifier si votre code respecte les bonnes pratiques. Comprendre npm vous permettra de découvrir et d'intégrer des ressources du vaste écosystème JavaScript dans vos propres projets.
-
-NPM est déjà installer avec NodeJS
-
-# Setup des outils
-
-## Créer ton compte Github
-
-GitHub est une plateforme qui te permet d'entreposer tes projets et des les partager avec d'autres développeurs.
-Afin de pouvoir suivre ce cour, il te sera nécessaire de créer un compte Github afin télécharger les modules nécessaires.
-
-Pour ce faire tu peux suivre ces étapes [Créer un compte Github](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github)
-
-Rend toi sur le repository (l'endroit ou sont entreposés les fichiers du cours) [Code with ashx](https://github.com/ashxjs/codewithashx_exercices) et clique sur le bouton "Code" en haut à droite de l'écran. Sélectionne `HTTPS` et copie le lien.
-
-En passant, tu peux cliquer sur le bouton "Star" pour donner de la force à ce repository.
-
-## Clone le repository
-
-Ouvre Visual Studio Code et déplace toi dans le dossier ou tu veux stocker les fichiers du cours:
-
-- Windows: <kbd>Ctrl</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Mac: <kbd>Cmd</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Ficher => Ouvrir un dossier
-
-Puis ouvre une nouvelle fenêtre de terminal (Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>, Mac: <kbd>Cmd</kbd> + <kbd>J</kbd>)
-
-```bash
-    git clone https://github.com/ashxjs/codewithashx_exercices.git
+```javascript
+const chat = {
+  name: "Garfield",
+};
 ```
 
-## Installer les modules
+Dans cet exemple :
 
-Nous aurons à present devoir installer les modules nécessaires pour le cours. Pour ce faire dans le même terminal ou tu as cloné le repository, tape la commande suivante:
+- `name` → **clé** qui permet d'accéder à sa valeur
+- `"Garfield"` → **valeur** associée à la clé `name`
 
-Npm va nous servir à télécharger toutes les librairies nécessaires pour le cours.
+---
 
-```bash
-    npm install
+## **Comment accéder aux propriétés d’un objet ?**
+
+Il existe **deux notations** pour accéder aux valeurs d’un objet :
+
+### Dot notation (`.`)
+
+Utilisée lorsque l'on **connaît** la clé à l'avance.
+
+```javascript
+const data = { name: "John" };
+console.log(data.name); // "John"
 ```
 
-Tu es maintenant prêt à commencer le cours.
+### Bracket notation (`[]`)
 
-## Vérifier les versions
+Utile lorsque la clé est **dynamique** (exemple : une variable)
 
-Pour vérifier que tout fonctionne bien, tu peux lancer la commande suivante:
-
-```bash
-    npm run postinstall
+```javascript
+const data = { name: "John" };
+console.log(data["name"]); // "John"
 ```
 
-Cette commande va vérifier que les versions de Node, Git et NPM sont correctes.
-Si tu as des erreurs, tu peux les résoudre en suivant les instructions de la documentation officielle de Node, Git et NPM.
+---
 
-Pour lancer le cours, tu peux lancer la commande suivante:
+## **Types de valeurs stockables**
 
-```bash
-    git checkout 1.Variables
+Un objet peut contenir **tous** les types de valeurs **JavaScript** :
+
+- `Number`
+- `String`
+- `BigInt`
+- `Boolean`
+- `undefined`
+- `null`
+- `function`
+
+Exemple d’un objet contenant différents types de valeurs :
+
+```javascript
+const chat = {
+  name: "Tano",
+  age: 2.5,
+  isSterilized: false,
+  jump: () => {
+    console.log("Je saute !");
+  },
+  walk: (direction) => {
+    console.log(`je marche en direction de ${direction}`);
+  },
+};
+```
+
+Dans cet exemple :
+
+- `name`, `age`, `isSterilized` sont des **attributs** (propriétés)
+- `jump`, `walk` sont des **méthodes** (fonctions attachées à l'objet)
+
+---
+
+## **Attributs et méthodes**
+
+## Attributs
+
+Un attribut est une **propriété intrinsèque** à un objet.
+
+> Si nous avions plusieurs chats, **chacun aurait son propre nom et âge**.
+
+## Méthodes
+
+Les méthodes sont des **actions** associées à un objet. Elles permettent **de modifier ses attributs**
+
+💡 **Pour modifier un attribut depuis une méthode, on utilise `this`**.
+
+> 🚨 **Attention** : Ne fonctionne pas dans les fonctions fléchées (arrow functions).
+
+```javascript
+const chat = {
+  name: "Tano",
+  age: 2.5,
+  x: 100,
+  y: 10,
+  isSterilized: false,
+  jump() {
+    console.log("Je saute !");
+  },
+  walk(stepDistance) {
+    this.x += stepDistance;
+  },
+};
+```
+
+La méthode `walk` nous permet de faire avancer notre chat sur l'axe des x d'une certaine distance.
+
+![images/cat_move_x.png](images/cat_move_x.png)
+
+**En javascript**:
+
+```javascript
+const chat = {
+  name: "Tano",
+  age: 2.5,
+  x: 100,
+  y: 10,
+  isSterilized: false,
+  jump() {
+    this.y += 50;
+    console.log("Je saute !");
+  },
+  walk(stepDistance) {
+    this.x += stepDistance;
+    console.log(`Je me déplace de ${stepDistance} pixels`);
+  },
+};
+
+chat.walk(50);
+console.log(chat.x); // 150
+```
+
+---
+
+### 🏆 **Exercices pratiques**
+
+#### **1️⃣ Créer un objet `user` avec les attributs suivants :**
+
+| Clé         | Type      | Valeur par défaut |
+| ----------- | --------- | ----------------- |
+| `lastname`  | `string`  | `'Doe'`           |
+| `firstname` | `string`  | `'John'`          |
+| `email`     | `string`  | `'john@doe.fr'`   |
+| `phone`     | `string`  | `'0000000000'`    |
+| `isLogged`  | `boolean` | `false`           |
+
+---
+
+#### **2️⃣ Ajouter des méthodes à `user` :**
+
+| Méthode                         | Action                      |
+| ------------------------------- | --------------------------- |
+| `updateLastname(newLastname)`   | Modifie `lastname`          |
+| `updateFirstname(newFirstname)` | Modifie `firstname`         |
+| `signIn()`                      | Change `isLogged` à `true`  |
+| `logout()`                      | Change `isLogged` à `false` |
+
+---
+
+## **Déstructuration (`destructuring`)**
+
+Depuis **ES6**, on peut extraire facilement certaines propriétés d’un objet.
+
+Exemple **sans déstructuration** :
+
+```javascript
+const user = { firstname: "John", lastname: "Doe" };
+console.log(`Bonjour ${user.firstname} ${user.lastname}`);
+```
+
+Avec **déstructuration** :
+
+```javascript
+const { firstname, lastname } = user;
+console.log(`Bonjour ${firstname} ${lastname}`);
+```
+
+💡 **Attention** : Les valeurs récupérées avec `const` sont **non modifiables**.
+
+---
+
+## **Spread Operator (`...`)**
+
+Le **spread operator** permet de **copier, fusionner ou modifier** des objets et des tableaux facilement.
+
+#### ✅ **Copier un tableau ou un objet** (évite la mutation des données)
+
+```javascript
+const arr = [1, 2, 3];
+const newArr = [...arr]; // Copie indépendante
+console.log(newArr); // [1, 2, 3]
+```
+
+#### ✅ **Fusionner des tableaux**
+
+```javascript
+const a = [1, 2];
+const b = [3, 4];
+const merged = [...a, ...b];
+console.log(merged); // [1, 2, 3, 4]
+```
+
+#### ✅ **Fusionner et modifier un objet**
+
+```javascript
+const user = { name: "Alice", age: 25 };
+const updatedUser = { ...user, age: 26 };
+console.log(updatedUser); // { name: "Alice", age: 26 }
+```
+
+#### ✅ **Passer un tableau en arguments d’une fonction**
+
+```javascript
+const numbers = [1, 2, 3];
+console.log(Math.max(...numbers)); // 3
+```
+
+---
+
+## 🏆 **Exercice 1 : Création et accès aux propriétés**
+
+Crée un objet `car` avec les attributs suivants :
+
+| Clé     | Type   | Valeur par défaut |
+| ------- | ------ | ----------------- |
+| `brand` | string | `'Tesla'`         |
+| `model` | string | `'Model S'`       |
+| `year`  | number | `2023`            |
+| `color` | string | `'black'`         |
+
+1️⃣ **Affiche dans la console** la marque (`brand`) et le modèle (`model`) de la voiture.  
+2️⃣ **Modifie la couleur (`color`)** en `'red'` et affiche le nouvel objet.
+
+---
+
+## 🏆 **Exercice 2 : Ajout de méthodes**
+
+Ajoute les **méthodes suivantes** à l'objet `car` créé précédemment :
+
+| Méthode           | Action                                                                          |
+| ----------------- | ------------------------------------------------------------------------------- |
+| `paint(newColor)` | Modifie la couleur de la voiture                                                |
+| `getInfo()`       | Retourne la phrase `"Cette voiture est une [brand] [model] de couleur [color]"` |
+
+3️⃣ **Teste la méthode `paint("blue")`** et affiche le résultat.  
+4️⃣ **Appelle la méthode `getInfo()`** et vérifie le message retourné.
+
+---
+
+## 🏆 **Exercice 3 : Gestion d'un panier d'achats**
+
+Crée un objet `shoppingCart` contenant :
+
+| Clé     | Type  | Valeur par défaut   |
+| ------- | ----- | ------------------- |
+| `items` | array | `[]` (tableau vide) |
+
+Ajoute les **méthodes suivantes** :
+
+| Méthode            | Action                                      |
+| ------------------ | ------------------------------------------- |
+| `addItem(item)`    | Ajoute un élément au panier                 |
+| `removeItem(item)` | Supprime un élément s'il est dans le panier |
+
+5️⃣ **Ajoute `'pomme'`, `'banane'` et `'chocolat'` au panier.**  
+6️⃣ **Supprime `'banane'` et affiche le panier.**
+
+---
+
+## 🏆 **Exercice 4 : Objet avec des objets imbriqués**
+
+Crée un objet `student` contenant un sous-objet `grades` :
+
+```javascript
+const student = {
+  name: "Lucas",
+  grades: {
+    math: 14,
+    english: 18,
+    science: 12,
+  },
+  average: function () {
+    // Complète cette méthode pour calculer la moyenne des notes
+  },
+};
+```
+
+9️⃣ **Complète la méthode `average()`** pour qu'elle retourne la **moyenne des notes** du student.  
+🔟 **Appelle `student.average()` et affiche le résultat.**
+
+---
+
+### Prochain cours : La P.O.O 🚀
+
+tu peux maintenant passer au cours suivant !
+
+```shell
+git reset --hard HEAD
+git switch 8-Poo
 ```
