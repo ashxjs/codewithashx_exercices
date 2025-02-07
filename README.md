@@ -51,11 +51,11 @@ Exemple d’une carte générée :
 
 ```javascript
 const map = [
-  //  1, 1, 1, 1, 1,
-  //  1, 3, 7, 4, 1,
-  //  1, 9, 0, 10, 1,
-  //  1, 5, 8, 6, 1,
-  //  1, 1, 1, 1, 1,
+  1, 1, 1, 1, 1,
+  1, 3, 7, 4, 1,
+  1, 9, 0, 10, 1,
+  1, 5, 8, 6, 1,
+  1, 1, 1, 1, 1,
 ];
 ```
 
@@ -91,7 +91,7 @@ Tu peux utiliser ces fonctions pour t’aider :
 ✅ `createImage(fichierSource, fichierSource)` → Génère une image à partir d’un fichier.<br>
 ✅ `displayBrowserScreen(elements, size)` → Affiche la carte sur la page web.
 
-## 📖 Documentation utile
+## 📖 Documentations utiles
 
 Quand on code, on rencontre souvent des concepts ou des fonctions inconnus.
 Lire la documentation permet de mieux les comprendre et les maîtriser !
@@ -103,6 +103,6 @@ Lire la documentation permet de mieux les comprendre et les maîtriser !
 
 ## 🚀 Ce que tu dois faire
 
-👉 Écrire une fonction qui transforme la carte en images.
-👉 Retourner un tableau contenant les images dans le bon ordre.
-👉 Afficher la carte avec `displayBrowserScreen()`.
+👉 Écrire une fonction qui transforme la carte en images. <br>
+👉 Retourner un tableau contenant les images dans le bon ordre. <br>
+👉 Afficher la carte avec `displayBrowserScreen()`. <br>
