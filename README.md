@@ -295,6 +295,14 @@ const student = {
 
 ---
 
+### Test des exercices
+
+```shell
+npm run test
+```
+
+---
+
 ### Prochain cours : La P.O.O 🚀
 
 tu peux maintenant passer au cours suivant !
