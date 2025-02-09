@@ -1,3 +1,5 @@
+# 2-Numbers
+
 Maintenant que tu sais ce qu'est une variable, on va maintenant s'intéresser au type primitif "Number"
 
 On va directement passer a la pratique !
