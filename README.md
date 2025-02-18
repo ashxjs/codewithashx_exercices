@@ -148,6 +148,8 @@ locust.receiveDamaged(marcus.getAttackDamaged()); // output: Locuste est mort �
 
 ### **Exercices 🎯**
 
+Tu devras créer toutes les `class` dans le fichier `poo.js` puis les exporter afin qu'elles soient bien accéssibles depuis le fichier de test.
+
 ### 🏆 Exercice 1: Créer un chat
 
 Créer une `class` Chat qui possède 2 attributs nom, race et une méthode `infos` qui affiche "Je suis Jumpy, ma race est Main coon."

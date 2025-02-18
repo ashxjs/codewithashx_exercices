@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "echo \"Node version: $(node --version)\" && echo \"Git version: $(git --version)\" && echo \"NPM version: $(npm --version)\"",
-    "test": "npx jest --watch",
+    "test": "npx jest poo.test.js --watch",
     "update:courses": "git fetch -a"
   },
   "author": "",
