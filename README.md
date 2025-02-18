@@ -1,95 +1,222 @@
-# Description des outils nécessaires
+## 1. Introduction
 
-- VS Code
-- Git
-- Node
-- NPM (Node Package Manager)
-- Créer un compte Github si tu n'en possède pas déjà
+Imagine que tu veux créer un jeu vidéo avec des voitures 🚗.  
+Chaque voiture possède des **caractéristiques** (comme sa couleur et sa vitesse) et peut effectuer des **actions** (comme avancer ou freiner).
 
-## VS Code ?
+En **programmation orientée objet (POO)**, on regroupe ces **caractéristiques** et ces **actions** au sein d'un modèle appelé **classe**.
 
-VS Code est un éditeur de code puissant et flexible, idéal pour écrire, déboguer et organiser du code JavaScript. Il est doté de nombreuses fonctionnalités comme la coloration syntaxique, la gestion de projets Git intégrée, et des extensions comme ESLint et Prettier pour vous aider à écrire un code propre et structuré.
+---
 
-Dans le cadre de ce cours, vous utiliserez VS Code pour suivre les exercices et explorer les modules. C’est un outil standard dans le monde du développement, et l’apprendre dès maintenant vous donnera une solide base pour travailler sur des projets JavaScript et collaborer efficacement avec d’autres développeurs.
+## **2. Les classes et les objets**
 
-Lien d'installation: https://code.visualstudio.com/
+Une **classe** est comme un **moule à gâteau 🍰**.  
+Un **objet**, c’est le **gâteau fabriqué avec ce moule**.
 
-## Git
+L'objet créer s'appelle une instance
+Chaque instance est indépendante.
 
-Git est un outil de contrôle de version qui vous permet de suivre et de gérer les modifications apportées à votre code. Il est utilisé pour collaborer efficacement, revenir à une version précédente en cas d’erreur, et organiser le développement de projets complexes grâce à des branches distinctes pour différentes fonctionnalités ou étapes.
+Pour créer une nouvelle instance on utilise le mot clés `new`.
 
-Dans le cadre de ce cours, Git vous permettra d’explorer les différents modules de manière organisée. Chaque module sera placé sur une branche distincte, ce qui vous permettra de naviguer facilement entre les étapes du cours, de comprendre les ajouts progressifs au code, et d’expérimenter sans risque d’altérer le projet principal. C’est une compétence clé pour tout développeur moderne, et ce cours vous aidera à la maîtriser dès le début.
+### 🛠️ Exemple de classe `Voiture` :
 
-Lien d'installation: https://git-scm.com/
+```javascript
+// Création du moule (class)
+class Voiture {
+  constructor(couleur, vitesse) {
+    this.couleur = couleur;
+    this.vitesse = vitesse;
+  }
 
-## Node JS
+  rouler() {
+    console.log("La voiture roule à " + this.vitesse + " km/h !");
+  }
+}
 
-Node.js est un environnement qui permet d’exécuter du code JavaScript en dehors du navigateur, grâce à son moteur JavaScript V8 (le même que celui de Chrome). Contrairement à un navigateur qui exécute JavaScript pour manipuler des pages web, Node.js est conçu pour des applications côté serveur. Cela signifie qu’il vous donne accès à des fonctionnalités supplémentaires, comme la gestion des fichiers, des serveurs, et d'autres outils non disponibles dans un navigateur.
+// Création d'un objet (une voiture)
+let maVoiture = new Voiture("rouge", 50);
+console.log(maVoiture.couleur); // Affiche: rouge
+maVoiture.rouler(); // Affiche : La voiture roule à 50 km/h !
 
-Lien d'installation: https://nodejs.org/en/download
-
-Dans ce cours, Node.js sera utilisé pour exécuter certains scripts JavaScript directement sur votre machine. Par exemple, vous apprendrez à utiliser des bibliothèques qui permettent de lire ou d’écrire dans des fichiers, ce qui est impossible à faire avec JavaScript dans un navigateur. C’est une manière différente mais essentielle d’utiliser JavaScript pour construire des applications plus complexes.
-
-### NPM (Node Package Manager)
-
-npm est un gestionnaire de paquets qui accompagne Node.js. Il vous permet de télécharger, installer et gérer des bibliothèques et outils JavaScript créés par d'autres développeurs, appelés "modules". Ces modules facilitent la création de projets en réutilisant des fonctionnalités existantes au lieu de les coder vous-même.
-
-Dans ce cours, vous utiliserez npm pour installer des modules nécessaires à certains exercices. Par exemple, vous pourriez installer une bibliothèque qui simplifie la manipulation des fichiers ou un outil pour vérifier si votre code respecte les bonnes pratiques. Comprendre npm vous permettra de découvrir et d'intégrer des ressources du vaste écosystème JavaScript dans vos propres projets.
-
-NPM est déjà installer avec NodeJS
-
-# Setup des outils
-
-## Créer ton compte Github
-
-GitHub est une plateforme qui te permet d'entreposer tes projets et des les partager avec d'autres développeurs.
-Afin de pouvoir suivre ce cour, il te sera nécessaire de créer un compte Github afin télécharger les modules nécessaires.
-
-Pour ce faire tu peux suivre ces étapes [Créer un compte Github](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github)
-
-Rend toi sur le repository (l'endroit ou sont entreposés les fichiers du cours) [Code with ashx](https://github.com/ashxjs/codewithashx_exercices) et clique sur le bouton "Code" en haut à droite de l'écran. Sélectionne `HTTPS` et copie le lien.
-
-En passant, tu peux cliquer sur le bouton "Star" pour donner de la force à ce repository.
-
-## Clone le repository
-
-Ouvre Visual Studio Code et déplace toi dans le dossier ou tu veux stocker les fichiers du cours:
-
-- Windows: <kbd>Ctrl</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Mac: <kbd>Cmd</kbd> + <kbd>o</kbd> +<kbd>K</kbd>
-- Ficher => Ouvrir un dossier
-
-Puis ouvre une nouvelle fenêtre de terminal (Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>, Mac: <kbd>Cmd</kbd> + <kbd>J</kbd>)
-
-```bash
-    git clone https://github.com/ashxjs/codewithashx_exercices.git
+// Création d'un deuxième objet
+let greenCar = new Voiture("vert", 100);
+console.log(maVoiture.couleur); // Affiche: vert
+greenCar.rouler(); // Affiche : La voiture roule à 100 km/h !
 ```
 
-## Installer les modules
+✅ **À partir d'un même modèle, on peut créer une infinité d'objets !**
 
-Nous aurons à present devoir installer les modules nécessaires pour le cours. Pour ce faire dans le même terminal ou tu as cloné le repository, tape la commande suivante:
+## **3. Les attributs et les méthodes**
 
-Npm va nous servir à télécharger toutes les librairies nécessaires pour le cours.
+Les **attributs** représentent les **propriétés** d’un objet.  
+Les **méthodes** sont les **actions** qu’un objet peut effectuer.
 
-```bash
-    npm install
+### 🛠️ Exemple : Class `Chat`
+
+```javascript
+class Chat {
+  constructor(nom, couleur) {
+    this.nom = nom;
+    this.couleur = couleur;
+  }
+
+  jump() {
+    console.log(`le chat ${this.nom} saute !`);
+  }
+}
+
+let chat1 = new Chat("Garfield", "orange");
+console.log(chat1.nom); // Affiche : Garfield
+console.log(chat1.couleur); // Affiche : orange
+console.log(chat1.jump()); // Affiche: le chat Garfield saute !
 ```
 
-Tu es maintenant prêt à commencer le cours.
+## 4. **L'encapsulation**
 
-## Vérifier les versions
+L’**encapsulation** est un principe fondamental de la programmation orientée objet qui consiste à **cacher** les détails internes d’un objet et à **contrôler** l’accès à ses attributs.
 
-Pour vérifier que tout fonctionne bien, tu peux lancer la commande suivante:
+### Pourquoi utiliser l'encapsulation ?
 
-```bash
-    npm run postinstall
+1️⃣ Empêche l'accès direct au attributs, on doit passer par des méthodes
+2️⃣ Permet de définir des règles d'accès aux données
+3️⃣ Améliore la lisibilité du code
+
+Prenons l'exemple d'un personnage de jeu
+
+```javascript
+class Character {
+  #life;
+  #xPos;
+  #yPos;
+  #firstName;
+  #lastName;
+}
+
+const major = new Character();
+console.log(major.firstName); // output: 'undefined'
 ```
 
-Cette commande va vérifier que les versions de Node, Git et NPM sont correctes.
-Si tu as des erreurs, tu peux les résoudre en suivant les instructions de la documentation officielle de Node, Git et NPM.
+Un attribut déclarer avec un `#`en premiere lettre est `privée`. On ne peut y avoir accès que dans la `class`. Dans notre exemple tous les attributs sont `privée`.
 
-Pour lancer le cours, tu peux lancer la commande suivante:
+Pour pouvoir y accéder nous allons devoirs passer par des `getter` et `setter`. Ce sont des méthodes qui vont nous permettre d'accéder a nos attributs
 
-```bash
-    git checkout 1.Variables
+```javascript
+class Character {
+  #life;
+  #xPos;
+  #yPos;
+  #firstName;
+  #lastName;
+  #attackDamage;
+
+  constructor(life, attack, firstName, lastName) {
+    this.#life = life;
+    this.#xPos = 0;
+    this.#yPos = 0;
+    this.#attackDamage = attack;
+    this.#firstName = firstName;
+    this.#lastName = lastName;
+  }
+
+  getLife() {
+    return this.#life;
+  }
+
+  getAttackDamaged() {
+    return this.#attackDamage;
+  }
+
+  receiveDamaged(damaged) {
+    this.#life -= damaged;
+
+    if (this.#life <= 0) {
+      console.log(`${this.#firstName} est mort 💀 !!!`);
+    }
+  }
+}
+```
+
+on va créer deux personnage et utiliser les getters et setters, puis les faire interagir.
+
+```javascript
+const marcus = new Character(2000, 1000, "Marcus", "Phoenix");
+const locust = new Character(1000, 1000, "Locust", "1");
+
+locust.receiveDamaged(marcus.getAttackDamaged()); // output: Locuste est mort 💀 !!!
+```
+
+---
+
+### **Exercices 🎯**
+
+### 🏆 Exercice 1: Créer un chat
+
+Créer une `class` Chat qui possède 2 attributs nom, race et une méthode `infos` qui affiche "Je suis Jumpy, ma race est Main coon."
+
+---
+
+### 🏆 Exercice 2: Ajouter une méthode `dormir()`
+
+Ajoute une méthode `dormir()` à la classe `Chat` qui affiche "[nom] dort... Zzz...".
+
+---
+
+### 🏆 Exercice 3: Créer une class MyString
+
+La `class` MyString doit prendre en paramètre de son constructeur une string.
+Ajoute un attributs privé `length` qui permet de compter le nombre de caractère du mot.
+
+🚨 Le comptage des caractères doit etre fais sans utiliser de `.length`.
+
+Exemple:
+
+```javascript
+const str = new MyString("Lorem ipsum");
+console.log(str.getLength()); // output: 11
+```
+
+---
+
+### 🏆 Exercice 4: Ajouter un attributs isPalindrome
+
+Ajouter un attribut `isPalindrome` et tester la string
+💡Un palindrome est un mot qui se lit à l'identique dans les deux sens
+
+Exemple: `kayak`, `radar`, `ressasser` etc ...
+
+Exemple:
+
+```javascript
+const str = MyString("Kayak");
+console.log(str.isPalindrome); // output: true
+
+const str = MyString("Bonjour");
+console.log(str.isPalindrome); // output: false
+```
+
+---
+
+### 🏆 **Exercice 5 :** Créer une `class` User
+
+Possédant les attributs privés suivants:
+
+- firstName
+- lastName
+- isLogged
+- email
+- password
+
+Définissez les getters et setters pour tous les attributs privés.
+Exemple: `getPassword` renvoie le password et `setPassword` le modifie.
+
+Ajouter une méthode `displayName` qui affiche le nom et le prénom par exemple pour: "Dupont Pierre"
+
+---
+
+## **Prochain cours: La P.O.O avancé** 🚦
+
+tu peux maintenant passer au cours suivant !
+
+```shell
+git reset --hard HEAD
+git switch 9-Poo-advenced
 ```
